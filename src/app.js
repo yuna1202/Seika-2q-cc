@@ -6,26 +6,13 @@ const logo = document.getElementById('name');
 const startAnimation = document.getElementById('startAnimation');
 
 startAnimation.onclick = function () {
-    let timeline = anime.timeline({
-        targets: '.st0',
-        direction: 'normal',
-        loop: false
-    })
-    timeline.add({
-        strokeDashoffset: [anime.setDashoffset, 0],
-        easing: 'easeInOutSine',
-        fill: ['transparent', 'transparent'],
-        duration: 400,
-        delay: function (el, i) { 
-		return i * 250; 
-	}
-    });
-
-    timeline.add({
-        easing: 'easeInOutSine',
-        fill: ['transparent', '#1D2A75'],
-        duration: 800
-    },
-    "-=200"
-    );
+  anime({
+    targets: '.line-drawing-demo .lines path',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 1500,
+    delay: function(el, i) { return i * 250 },
+    direction: 'alternate',
+    loop: false,
+  });
 };
